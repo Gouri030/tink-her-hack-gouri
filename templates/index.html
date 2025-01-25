@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Travel Buddy</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <!-- Travel Buddy Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Find Your Travel Buddy</h2>
+                    <p class="card-text text-center mb-4">Plan your trip and find the perfect travel companion!</p>
+
+                    <!-- Travel Form -->
+                    <form action="/" method="POST">
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <!-- Interest -->
+                        <div class="form-group">
+                            <label for="interest">What are you interested in?</label>
+                            <input type="text" class="form-control" id="interest" name="interest" required>
+                        </div>
+
+                        <!-- Destination -->
+                        <div class="form-group">
+                            <label for="destination">Where are you traveling to?</label>
+                            <input type="text" class="form-control" id="destination" name="destination" required>
+                        </div>
+
+                        <!-- Travel Dates -->
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="start_date">Start Date</label>
+                                <input type="date" class="form-control" id="start_date" name="start_date" required>
+                            </div>
+                            <div class="col">
+                                <label for="end_date">End Date</label>
+                                <input type="date" class="form-control" id="end_date" name="end_date" required>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Find Travel Buddies</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

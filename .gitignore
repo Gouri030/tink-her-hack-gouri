@@ -1,0 +1,9 @@
+# Ignore sensitive files
+database/serviceAccountKey.json
+
+# Ignore entire folders
+__pycache__/
+node_modules/
+
+# Ignore environment files
+.env

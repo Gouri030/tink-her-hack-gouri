@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Buddy Match</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="container">
+        <div class="text-center mt-5">
+            <h2 class="mb-4">Your Travel Match</h2>
+
+            <!-- Display user-entered information -->
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Looking for:</strong> {{ interest }}</p>
+            <p><strong>Destination:</strong> {{ destination }}</p>
+            <p><strong>Travel Dates:</strong> {{ start_date }} to {{ end_date }}</p>
+
+            <!-- Section for showing matching travel buddies -->
+            <h3 class="mt-5">Matching Travel Buddies:</h3>
+            <ul class="list-group">
+                {% for buddy in buddies %}
+                <li class="list-group-item">
+                    <strong>{{ buddy.name }}</strong> - Interested in traveling to {{ buddy.destination }} for some {{
+                    buddy.interest }} from {{ buddy.start_date }} to {{ buddy.end_date }}.
+                </li>
+                {% else %}
+                <li class="list-group-item">No matching travel buddies found at the moment.</li>
+                {% endfor %}
+            </ul>
+
+            <!-- Logout button -->
+            <a href="{{ url_for('logout') }}" class="btn btn-danger mt-4">Logout</a>
+        </div>
+    </div>
+    {% endblock %}
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
