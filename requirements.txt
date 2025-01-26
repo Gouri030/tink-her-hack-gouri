@@ -1,0 +1,47 @@
+Firebase Integration:
+
+firebase-admin==6.6.0
+google-cloud-firestore==2.20.0
+google-cloud-storage==2.19.0
+
+Flask Web Framework:
+
+Flask==3.0.3
+Flask-Login==0.6.3
+Flask-Mail==0.10.0
+
+Authentication and Security:
+
+Flask-Login==0.6.3
+itsdangerous==2.2.0
+PyJWT==2.9.0
+cryptography==44.0.0
+
+Request Handling:
+
+requests==2.32.3
+urllib3==2.2.3
+httplib2==0.22.0
+CacheControl==0.14.2
+google-auth==2.38.0
+google-auth-httplib2==0.2.0
+
+Data Handling:
+
+pandas==2.0.3
+numpy==1.24.4
+matplotlib==3.7.5
+seaborn==0.13.2
+
+User Interface & Formatting:
+
+Flask-Mail==0.10.0
+Jinja2==3.1.5
+Werkzeug==3.0.6
+
+Other Dependencies:
+
+pillow==10.4.0
+tqdm==4.67.1
+py-cpuinfo==9.0.0
+opencv-python==4.11.0.86

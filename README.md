@@ -31,10 +31,22 @@ Tools used: Firebase (for database and authentication), Vercel for hosting and d
 ### Implementation
 For Software:
 # Installation
-[commands]
+Installation
+To set up the project on your local machine, follow these steps:
+
+Clone the repository
+Clone the Travel Buddy repository to your local machine using the following command:
+git clone <repository-url>
+
+Navigate to the project directory
+Change your directory to the project folder:
+cd <repository-address>
+
+Download all the dependancies 
+ pip install <Dependancies listed in requirements.txt>
 
 # Run
-[commands]
+python app.py
 
 ### Project Documentation
 For Software:
@@ -55,6 +67,36 @@ Firebase Authentication is used to securely manage user sign-ups, logins, and se
 Database
 
 Firebase Firestore is used to store user data. Each user document contains details like name, email, destination, interest, and travel_dates.
+
+FUTURE SCOPE:
+
+### **1. AI-Powered Trip Planner (Core Feature)**
+
+This feature is the backbone of your platform, combining safety and planning for solo travelers.
+
+- **Why focus on it?** It showcases the platform's core purpose: empowering users with safe, well-planned trips tailored to their preferences.
+- **What to implement?**
+    - A simple form where users can input preferences (destination, travel style).
+    - Use the **Google Maps API** to:
+        - Suggest safe routes.
+        - Highlight safety zones on maps.
+    - Display the itinerary (e.g., stops, attractions) dynamically in the UI.
+- **Execution Time:**
+    - **Backend:** 2–3 hours (Flask route + API integration).
+    - **Frontend:** 2–3 hours (HTML, CSS, JavaScript to display results).
+
+### **2.Regional Slang Translation & Cultural Guidance**
+
+- **AI-Powered Translation Tool**
+    - Powered by NLP (Natural Language Processing), Wander Guard translates regional slang, such as Malayalam phrases, into English in real time.
+    - This feature enhances communication in unfamiliar places, breaking down language barriers.
+- Powered by NLP (Natural Language Processing), Wander Guard translates regional slang, such as Malayalam phrases, into English in real time.
+- This feature enhances communication in unfamiliar places, breaking down language barriers.
+- **Cultural Assistant**
+    - The platform provides etiquette tips and insights into local customs to help travelers navigate different cultures with confidence.
+- The platform provides etiquette tips and insights into local customs to help travelers navigate different cultures with confidence.
+
+
 
 # Screenshots (Add at least 3)
 ![Screenshot1](Add screenshot 1 here with proper name)
