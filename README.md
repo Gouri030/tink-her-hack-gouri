@@ -92,21 +92,15 @@ This feature is the backbone of your platform, combining safety and planning for
     - This feature enhances communication in unfamiliar places, breaking down language barriers.
 - Powered by NLP (Natural Language Processing), Wander Guard translates regional slang, such as Malayalam phrases, into English in real time.
 - This feature enhances communication in unfamiliar places, breaking down language barriers.
-- **Cultural Assistant**
-    - The platform provides etiquette tips and insights into local customs to help travelers navigate different cultures with confidence.
-- The platform provides etiquette tips and insights into local customs to help travelers navigate different cultures with confidence.
 
 
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![LOGIN PAGE](assets/image/Screenshot%202025-01-26%20094657.png)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Travel Buddy Interface](assets/images/Screenshot%202025-01-26%20094802.png)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+!![Displays Matching Buddies](assets/images/Screenshot%202025-01-26%20094815.png)
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
