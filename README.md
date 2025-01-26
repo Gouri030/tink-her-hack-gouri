@@ -39,6 +39,23 @@ For Software:
 ### Project Documentation
 For Software:
 
+Frontend
+
+The frontend of this project uses HTML, CSS (with Bootstrap), and JavaScript. The layout is designed for a clean and responsive user experience.
+The index.html serves as the homepage where users input their travel details, while buddies.html displays the list of potential travel buddies.
+
+Backend
+
+Flask handles the server-side logic, routing, and user authentication. Firebase is used to store user data, including travel details, and manage user authentication via Firebase Auth.
+The application logic checks for matching travel buddies by comparing users' destination, interests, and travel dates in the Firebase database.
+
+User Authentication
+
+Firebase Authentication is used to securely manage user sign-ups, logins, and sessions.
+Database
+
+Firebase Firestore is used to store user data. Each user document contains details like name, email, destination, interest, and travel_dates.
+
 # Screenshots (Add at least 3)
 ![Screenshot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
