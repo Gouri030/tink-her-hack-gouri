@@ -109,10 +109,15 @@ This feature is the backbone of your platform, combining safety and planning for
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[DEMO VIDEO]
+*Explain what the video demonstrates*](https://drive.google.com/file/d/1T7lN3xSB3Y56y8bM8ST2iAsC15k_qV0_/view?usp=sharing)
 
-# Additional Demos
-[Add any extra demo materials/links]
+Video Description:
+This video showcases the process of how the Travel Buddy platform works. It demonstrates the following key steps:
+
+User Registration & Login: A user creates an account by entering their name, age, and email, or logs in if they already have an account.
+Entering Travel Details: Once logged in, the user proceeds to the main page where they input their travel details, including their destination, interests, and travel dates.
+Finding a Travel Buddy: The user clicks on the "Find Buddy" button, which triggers a search for other users with matching travel destinations, interests, and dates.
+Buddy Listing: After the search, the matching travel buddies are displayed in a list, allowing users to connect with potential companions for their travels.
 
 Made with ❤️ at TinkerHub
