@@ -96,7 +96,7 @@ This feature is the backbone of your platform, combining safety and planning for
 
 
 # Screenshots (Add at least 3)
-![LOGIN PAGE](assets/image/Screenshot%202025-01-26%20094657.png)
+!![Login Page](assets/images/Screenshot%202025-01-26%20094657.png)
 
 ![Travel Buddy Interface](assets/images/Screenshot%202025-01-26%20094802.png)
 
