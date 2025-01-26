@@ -105,10 +105,7 @@ This feature is the backbone of your platform, combining safety and planning for
 !![Displays Matching Buddies](assets/images/Screenshot%202025-01-26%20094815.png)
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
+![flow chart](assets/images/Screenshot%202025-01-26%20102110.png)
 
 # Schematic & Circuit
 ![Circuit](Add your circuit diagram here)
