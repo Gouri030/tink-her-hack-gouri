@@ -3,7 +3,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import firebase_admin
 from firebase_admin import credentials, firestore, auth
 from firebase_admin.exceptions import FirebaseError
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 
 # Initialize Flask app
@@ -92,9 +92,9 @@ def login():
             user_data = auth.get_user(user.uid)
 
             if user_data:
-                login_user(User(user_data.uid))  # login the user using Flask-Login
+                login_user(User(user_data.uid))  # Login the user using Flask-Login
                 flash("Login successful!")
-                return redirect(url_for("home"))  # Redirect to home or another page where the user can find buddies
+                return redirect(url_for("home"))  # Redirect to home page
 
             else:
                 flash("Invalid email or password. Please try again.")
@@ -113,9 +113,9 @@ def logout():
     logout_user()
     return redirect(url_for("home"))
 
-# Home page route (for showing registered user)
+# Home page route
 @app.route("/", methods=["GET", "POST"])
-@login_required  # Protect this route to ensure the user is logged in
+@login_required
 def home():
     if request.method == "POST":
         name = request.form["name"]
@@ -144,43 +144,75 @@ def home():
 
     return render_template("index.html")
 
-# Find Buddies Route (for showing users with matching destinations and interests)
+# Find Buddies Route
+from datetime import datetime
+from flask import render_template, current_app
+from flask_login import login_required, current_user
+
 @app.route("/find_buddies", methods=["GET"])
-@login_required  # Protect this route to ensure the user is logged in
+@login_required
 def find_buddies():
-    user_email = current_user.id  # Get the email of the logged-in user from Flask-Login
+    # Retrieve the current user's email and reference from Firestore
+    user_email = current_user.id
     user_ref = db.collection("users").document(user_email)
-    user = user_ref.get().to_dict()
+    
+    try:
+        # Get the user data from Firestore
+        user = user_ref.get().to_dict()
+        if not user:
+            return "User data not found", 404
+        
+        # Extract destination, interest, and travel dates
+        destination = user.get("destination")
+        interest = user.get("interest")
+        travel_dates = user.get("travel_dates", {})
+        start_date_str = travel_dates.get("start_date")
+        end_date_str = travel_dates.get("end_date")
+        
+        # If any required field is missing, handle the error
+        if not destination or not interest or not start_date_str or not end_date_str:
+            return "Incomplete user data", 400
 
-    # Get user details
-    destination = user["destination"]
-    interest = user["interest"]
-    start_date = datetime.strptime(user["travel_dates"]["start_date"], "%Y-%m-%d")
-    end_date = datetime.strptime(user["travel_dates"]["end_date"], "%Y-%m-%d")
+        # Convert start and end dates to datetime objects
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date_str, "%Y-%m-%d")
+        
+        # Query for users with the same destination and interest
+        matching_users = db.collection("users").where("destination", "==", destination)\
+                                                .where("interest", "==", interest).stream()
+        
+        buddies = []
+        
+        # Loop through the matching users and filter based on travel dates overlap
+        for buddy in matching_users:
+            buddy_data = buddy.to_dict()
+            buddy_start_date = datetime.strptime(buddy_data["travel_dates"]["start_date"], "%Y-%m-%d")
+            buddy_end_date = datetime.strptime(buddy_data["travel_dates"]["end_date"], "%Y-%m-%d")
 
-    # Query Firestore for users with matching destination and interest
-    matching_users = db.collection("users").where("destination", "==", destination).where("interest", "==", interest).stream()
+            # Check if the travel dates overlap
+            if start_date <= buddy_end_date and end_date >= buddy_start_date:
+                buddies.append({
+                    "name": buddy_data["name"],
+                    "email": buddy_data["email"],
+                    "destination": buddy_data["destination"],
+                    "interest": buddy_data["interest"],
+                    "start_date": buddy_data["travel_dates"]["start_date"],
+                    "end_date": buddy_data["travel_dates"]["end_date"]
+                })
 
-    buddies = []
-    for buddy in matching_users:
-        buddy_data = buddy.to_dict()
+        # If no matching buddies, you can show a message or an empty list
+        if not buddies:
+            current_app.logger.info(f"No buddies found for user: {user_email}")
+            return render_template("buddies.html", buddies=None)  # Or display a message in the template
 
-        # Get buddy's travel dates
-        buddy_start_date = datetime.strptime(buddy_data["travel_dates"]["start_date"], "%Y-%m-%d")
-        buddy_end_date = datetime.strptime(buddy_data["travel_dates"]["end_date"], "%Y-%m-%d")
+        # Return the list of matching buddies
+        return render_template("buddies.html", buddies=buddies)
 
-        # Check if travel dates overlap (simple comparison logic, you can improve this)
-        if start_date <= buddy_end_date and end_date >= buddy_start_date:
-            buddies.append({
-                "name": buddy_data["name"],
-                "email": buddy_data["email"],
-                "destination": buddy_data["destination"],
-                "interest": buddy_data["interest"],
-                "start_date": buddy_data["travel_dates"]["start_date"],
-                "end_date": buddy_data["travel_dates"]["end_date"]
-            })
+    except Exception as e:
+        # Catch and log any errors
+        current_app.logger.error(f"Error finding buddies: {e}")
+        return "An error occurred while finding buddies", 500
 
-    return render_template("buddies.html", buddies=buddies)
 
 if __name__ == "__main__":
     app.run(debug=True)
