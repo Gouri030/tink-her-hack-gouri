@@ -8,7 +8,7 @@
 
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+LINK - https://tink-her-hack-gouri-dy41.vercel.app/
 
 ### Project Description
 Travel Buddy is a platform that helps users find travel companions based on shared interests and destinations. By providing travel details like dates, destination, and preferences, users can easily connect with others who are traveling to the same place during the same time.
