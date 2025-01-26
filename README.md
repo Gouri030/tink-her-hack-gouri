@@ -1,39 +1,32 @@
-# [Project Name] 🎯
+# Project Name - WanderGuard🎯
 
 
 ## Basic Details
-### Team Name: [Name]
-
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: Gouri K - Amrita Vishwavidyapeetham, Amritapuri
+
 
 ### Hosted Project Link
 [mention your project hosted project link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+Travel Buddy is a platform that helps users find travel companions based on shared interests and destinations. By providing travel details like dates, destination, and preferences, users can easily connect with others who are traveling to the same place during the same time.
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+Traveling solo can be lonely, expensive, and sometimes a little intimidating. Finding someone who shares your interests and travel plans shouldn’t be a challenge. That's where Travel Buddy steps in – matching like-minded travelers looking for company.
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+With Travel Buddy, finding a travel buddy is as easy as sharing your destination and interest! By inputting travel dates, destination, and interests, the platform will show you potential travel companions who are going to the same places and share the same passion for travel. No more lonely trips!
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+Languages used: Python, HTML, CSS, JavaScript
+Frameworks used: Flask (Backend), Bootstrap (Frontend)
+Libraries used: Firebase SDK, Jinja2 (for templating), DateTime (for date operations)
+Tools used: Firebase (for database and authentication), Vercel for hosting and database management.
 
 ### Implementation
 For Software:
